@@ -10,6 +10,7 @@ const getAll = async (req, res) => {
 };
 
 const getSingle = async (req, res) => {
+    //#swagger.tags=['Consoles']
     const consolesId = new ObjectId(req.params.id);
     const result = await mongodb.getDatabase().db().collection('consoles').find({ _id: consolesId });
     result.toArray().then((consoles) => {
@@ -19,6 +20,7 @@ const getSingle = async (req, res) => {
 };
 
 const createConsoles = async (req, res) => {
+    //#swagger.tags=['Consoles']
     try {
         if (!req.body || !req.body.name || !req.body.manufacturer || !req.body.release_date) {
             res.status(400).json('Missing required data in the request body');
@@ -47,6 +49,7 @@ const createConsoles = async (req, res) => {
 
 
 const updateConsoles = async (req, res) => {
+    //#swagger.tags=['Consoles']
     try {
         const consoleId = new ObjectId(req.params.id);
         const console = {
@@ -74,6 +77,7 @@ const updateConsoles = async (req, res) => {
 };
 
 const deleteConsoles = async (req, res) => {
+    //#swagger.tags=['Consoles']
     try {
         const consoleId = new ObjectId(req.params.id);
 
