@@ -5,10 +5,9 @@
     "description": "Consoles Api",
     "version": "1.0.0"
   },
-  "host": "localhost:3001",
+  "host": "project2-0qm0.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http",
     "https"
   ],
   "paths": {
