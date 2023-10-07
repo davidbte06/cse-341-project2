@@ -3,10 +3,12 @@ const router = express.Router();
 
 const consolesController = require('../controllers/consoles')
 
+const { isAuthenticated } = require("../middleware/authenticate")
+
 router.get('/', consolesController.getAll);
 router.get('/:id', consolesController.getSingle);
-router.post('/', consolesController.createConsoles);
-router.put('/:id', consolesController.updateConsoles);
-router.delete('/:id', consolesController.deleteConsoles);
+router.post('/', isAuthenticated, consolesController.createConsoles);
+router.put('/:id', isAuthenticated, consolesController.updateConsoles);
+router.delete('/:id', isAuthenticated, consolesController.deleteConsoles);
 
 module.exports = router;
